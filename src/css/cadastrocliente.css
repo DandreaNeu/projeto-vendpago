@@ -1,0 +1,51 @@
+.container_cadastro_cliente{
+  width: 860px;
+  margin: 50px auto;
+}
+
+.container_cadastro_cliente form{
+  width: 470px;
+  margin: 10px auto;
+}
+.container_cadastro_cliente h2{
+  font-family: "Roboto", sans-serif;
+  color: rgb(9, 9, 96);
+}
+.container_cadastro_cliente form p{
+  font-family: "Roboto",sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  background: #F00;
+  color: #FFF;
+  padding: 10px;
+  border-radius: 5px;
+  width:120px;
+  text-align: center;
+}
+.container_cadastro_cliente form label{
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 3px;  
+  color: rgb(9, 9, 96);
+}
+.container_cadastro_cliente form input[type="text"]{
+  width: 350px;
+  padding:10px ;
+  border: 1px solid rgb(9, 9, 96);
+  outline: none;
+  margin-bottom: 25px;
+
+}
+.container_cadastro_cliente form input[type="submit"]{
+  display: block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  color: #FFF;
+  border: 0;
+  border-radius: 5px;
+  background-color:rgb(9, 9, 96); 
+  outline: none;
+  cursor: pointer;
+}

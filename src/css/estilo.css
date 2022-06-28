@@ -1,0 +1,12 @@
+.container_topo img{ 
+  height:100px; 
+}
+.container_rodape img{
+  width: 10%; 
+  margin-left: 900px; 
+}
+body{
+  background-color: rgb(230, 231, 226);
+}
+
+

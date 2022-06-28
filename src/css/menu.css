@@ -1,0 +1,15 @@
+.menu  {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+}
+.menu a {
+  font-family: "Roboto" , sans-serif;
+  font-size: 30px; 
+  color: rgb(9, 9, 96);
+  text-decoration: none;
+  justify-content: space-evenly;
+  margin: 40px;
+}
