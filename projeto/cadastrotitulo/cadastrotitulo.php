@@ -1,44 +1,31 @@
-<?php require_once("../conexao/conexao.php") ?>
+<?php
+$conecta = mysqli_connect("localhost", "root", "", "vendpago");
+if (mysqli_connect_errno()) {
+  die("Conexão falhou" . mysqli_connect_errno());
+}
+
+if (isset($_POST["nome"])) {
+  $nome = utf8_decode($_POST["nome"]);
+  $descricao = utf8_decode($_POST["descricao"]);
 
 
-<!DOCTYPE html>
-<html lang="pt">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Projeto VendPago</title>
-  <link href="../src/css/estilo.css" rel="stylesheet">
-  <link href="../src/css/cadastrotitulo.css" rel="stylesheet">
-</head>
-
-<body class="container">
-  <?php
-  include_once("../servicos/topo.php");
-  ?>
-  <div class="container_cadastro_titulo">
-    <h2>Cadastro de Título</h2>
-
-    <form action="cadastrotitulo.php">
-      <label for="nome">Nome</label>
-      <input type="text" name="nome">
-      <label for="descricao">Descrição do Título</label>
-      <textarea name="descricao"></textarea>
-      <input type="submit" value="Cadastrar">
-
-      <div id="mensagem">
-        <p></p>
-      </div>
-    </form>
-
-  </div>
+  $cadastrar = "INSERT INTO titulos ";
+  $cadastrar .= "(nome,descricao)";
+  $cadastrar .= "VALUES ";
+  $cadastrar .= "('$nome','$descricao')";
 
 
+  $retorno = array();
 
+  $cadastro_titulo = mysqli_query($conecta, $cadastrar);
 
+  if ($cadastro_titulo) {
+    $retorno["sucesso"] = true;
+    $retorno["mensagem"] = "Título cadastrado com sucesso.";
+  } else {
+    $retorno["sucesso"] = false;
+    $retorno["mensagem"] = "Falha no cadastro.";
+  }
 
-  <?php include_once("../servicos/rodape.php");
-  ?>
-
-</body>
-
-</html>
+  echo json_encode($retorno);
+}
