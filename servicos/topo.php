@@ -1,4 +1,4 @@
 <div class="container_topo">
 
-  <img src="../assets//topo.png" alt="">
+  <img src="http://localhost/vendpago/assets/topo.png" alt="">
 </div>

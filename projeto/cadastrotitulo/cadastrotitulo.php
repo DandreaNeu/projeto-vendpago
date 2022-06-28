@@ -8,24 +8,26 @@
   <meta charset="UTF-8" />
   <title>Projeto VendPago</title>
   <link href="../src/css/estilo.css" rel="stylesheet">
-  <link href="../src/css/cadastrocliente.css" rel="stylesheet">
+  <link href="../src/css/cadastrotitulo.css" rel="stylesheet">
 </head>
 
 <body class="container">
   <?php
   include_once("../servicos/topo.php");
   ?>
-  <div class="container_cadastro_cliente">
-    <h2>Cadastro de Cliente</h2>
+  <div class="container_cadastro_titulo">
+    <h2>Cadastro de Título</h2>
 
-    <form action="cadastrocliente.php">
+    <form action="cadastrotitulo.php">
       <label for="nome">Nome</label>
       <input type="text" name="nome">
-      <label for="email">Email</label>
-      <input type="text" name="email">
-      <label for="telefone">Telefone</label>
-      <input type="text" name="telefone">
+      <label for="descricao">Descrição do Título</label>
+      <textarea name="descricao"></textarea>
       <input type="submit" value="Cadastrar">
+
+      <div id="mensagem">
+        <p></p>
+      </div>
     </form>
 
   </div>

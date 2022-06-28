@@ -17,8 +17,8 @@
 
   <main>
     <div class="menu">
-      <a href="cadastrocliente.php">Cadastro de Cliente</a>
-      <a href="cadastrotitulo.php">Cadastro de Títulos</a>
+      <a href="../projeto/cadastrocliente/formulariocliente.php">Cadastro de Cliente</a>
+      <a href="../projeto/cadastrotitulo/formulariotitulo.php">Cadastro de Títulos</a>
       <a href="agenda.php">Agenda de Retirada e Entrega</a>
     </div>
 
