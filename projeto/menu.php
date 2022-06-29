@@ -19,7 +19,7 @@
     <div class="menu">
       <a href="../projeto/cadastrocliente/formulariocliente.php">Cadastro de Cliente</a>
       <a href="../projeto/cadastrotitulo/formulariotitulo.php">Cadastro de Títulos</a>
-      <a href="agenda.php">Agenda de Retirada e Entrega</a>
+      <a href="./agenda/agenda.php">Agenda de Retirada e Entrega</a>
     </div>
 
 

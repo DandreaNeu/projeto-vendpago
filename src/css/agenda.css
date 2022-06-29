@@ -7,6 +7,11 @@
   width: 470px;
   margin: 10px auto;
 }
+
+.container_agenda form select{
+  width: 470px;
+  margin-bottom: 25px;
+}
 .container_agenda h2{
   font-family: "Roboto", sans-serif;
   color: rgb(9, 9, 96);
