@@ -1,11 +1,3 @@
-<?php
-$conecta = mysqli_connect("localhost", "root", "", "vendpago");
-if (mysqli_connect_errno()) {
-  die("Conexão falhou : " . mysqli_connect_errno());
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -39,7 +31,7 @@ if (mysqli_connect_errno()) {
   </div>
 
 
-  <script src="jquery.js">
+  <script src="./../../src/js/jquery.js">
   </script>
   <script>
     $("#formulario_cadastrotitulo").submit(function(e) {
@@ -52,7 +44,7 @@ if (mysqli_connect_errno()) {
       $.ajax({
         type: "POST",
         data: dados.serialize(),
-        url: "cadastrotitulo.php ",
+        url: "./../../servicos/titulo/cadastrotitulo.php",
         async: false
       }).then(sucesso, falha);
 
