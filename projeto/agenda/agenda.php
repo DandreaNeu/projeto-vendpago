@@ -22,9 +22,9 @@
       <label for="tituloslocados">Títulos Locados</label>
       <select id="tituloslocados"></select>
       <label for="datalocado">Data Retirada</label>
-      <input id="datalocado" type="date" name="datalocado">
+      <input id="datalocado" type="date" name="datalocado" disabled>
       <label for="dataretorno">Data Entrega</label>
-      <input id="dataretorno" type="date" name="dataretorno">
+      <input id="dataretorno" type="date" name="dataretorno" disabled>
 
 
       <div id="mensagem">
@@ -63,6 +63,7 @@
     });
 
     $("#tituloslocados").change(function(e) {
+
       var locadoID = ($(this).val());
       $.ajax({
         type: "GET",
@@ -78,13 +79,14 @@
         var dia = String(data.getDate()).padStart(2, '0');
         var mes = String(data.getMonth() + 1).padStart(2, '0');
         var ano = data.getFullYear();
-        dataAtual = dia + '/' + mes + '/' + ano;
+        dataAtual = ano + "-" + mes + "-" + dia;
 
         if (retorno.dataretorno < dataAtual) {
-          console.log("multa")
           $('#mensagem').show();
           $mensagem = "Cobrar multa de cliente por atraso !!!"
           $('#mensagem p').html($mensagem);
+        } else {
+          $('#mensagem').hide();
         }
       });
 
