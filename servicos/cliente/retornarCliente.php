@@ -1,6 +1,8 @@
 <?php
+include_once("../../servicos/conexao/conexao.php");
+
 $callback = isset($_GET['callback']) ?  $_GET['callback'] : false;
-$conecta = mysqli_connect("localhost", "root", "", "vendpago");
+
 
 $selecao = "SELECT clienteID , nome FROM clientes";
 $clientes = mysqli_query($conecta, $selecao);

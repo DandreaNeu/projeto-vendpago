@@ -1,6 +1,7 @@
 <?php
 include_once("../../servicos/conexao/conexao.php");
 
+
 if (isset($_POST["nome"])) {
   $nome = utf8_decode($_POST["nome"]);
   $email = utf8_decode($_POST["email"]);
@@ -26,3 +27,4 @@ if (isset($_POST["nome"])) {
 
   echo json_encode($retorno);
 }
+mysqli_close($conecta);

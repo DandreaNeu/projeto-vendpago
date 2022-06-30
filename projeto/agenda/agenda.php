@@ -11,19 +11,26 @@
 <body class="container">
   <?php
   include_once("../../servicos/topo.php");
+
   ?>
   <div class="container_agenda">
     <h2>Agenda de Retirada e Entrega</h2>
 
-    <form action="agenda.php">
+    <form>
       <label for="clientes">Cliente</label>
       <select id="clientes"></select>
       <label for="tituloslocados">Títulos Locados</label>
       <select id="tituloslocados"></select>
-      <label for="dataretirada">Data Retirada</label>
-      <input type="date" name="dataretirada">
-      <label for="dataentrega">Data Entrega</label>
-      <input type="date" name="dataentrega">
+      <label for="datalocado">Data Retirada</label>
+      <input id="datalocado" type="date" name="datalocado">
+      <label for="dataretorno">Data Entrega</label>
+      <input id="dataretorno" type="date" name="dataretorno">
+
+
+      <div id="mensagem">
+        <p></p>
+      </div>
+
 
     </form>
 
@@ -49,9 +56,36 @@
       }).done(function(data) {
         var tituloslocados = "<option selected='selected' hidden>Selecione o Título</option>";
         $.each($.parseJSON(data), function(chave, valor) {
-          tituloslocados += '<option value="' + valor.tituloID + '">' + valor.nome + '</option>';
+          tituloslocados += '<option value="' + valor.locadoID + '">' + valor.nome + '</option>';
         });
         $('#tituloslocados').html(tituloslocados);
+      });
+    });
+
+    $("#tituloslocados").change(function(e) {
+      var locadoID = ($(this).val());
+      $.ajax({
+        type: "GET",
+        data: "locadoID" + "=" + locadoID,
+        url: "./../../servicos/locacaotitulo/retornarUnicoTituloLocado.php",
+        async: false
+      }).done(function(data) {
+        var retorno = $.parseJSON(data);
+        $('#datalocado').val(retorno.datalocado);
+        $('#dataretorno').val(retorno.dataretorno);
+
+        var data = new Date();
+        var dia = String(data.getDate()).padStart(2, '0');
+        var mes = String(data.getMonth() + 1).padStart(2, '0');
+        var ano = data.getFullYear();
+        dataAtual = dia + '/' + mes + '/' + ano;
+
+        if (retorno.dataretorno < dataAtual) {
+          console.log("multa")
+          $('#mensagem').show();
+          $mensagem = "Cobrar multa de cliente por atraso !!!"
+          $('#mensagem p').html($mensagem);
+        }
       });
 
     });

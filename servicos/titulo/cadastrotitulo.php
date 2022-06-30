@@ -1,8 +1,5 @@
 <?php
-$conecta = mysqli_connect("localhost", "root", "", "vendpago");
-if (mysqli_connect_errno()) {
-  die("Conexão falhou" . mysqli_connect_errno());
-}
+include_once("../../servicos/conexao/conexao.php");
 
 if (isset($_POST["nome"])) {
   $nome = utf8_decode($_POST["nome"]);
@@ -29,3 +26,4 @@ if (isset($_POST["nome"])) {
 
   echo json_encode($retorno);
 }
+mysqli_close($conecta);

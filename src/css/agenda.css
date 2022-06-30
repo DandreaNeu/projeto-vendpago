@@ -16,6 +16,11 @@
   font-family: "Roboto", sans-serif;
   color: rgb(9, 9, 96);
 }
+.container_agenda form #mensagem {
+  margin: 10px auto;
+  display: none;
+  
+}
 .container_agenda form p{
   font-family: "Roboto",sans-serif;
   font-size: 12px;
